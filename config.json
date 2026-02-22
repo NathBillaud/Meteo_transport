@@ -1,0 +1,57 @@
+{
+  "_comment": "Configuration pour les écrans des transports",
+  "_usage": "Modifier 'currentCity' pour changer de ville (0=Nantes, 1=Rennes, etc.)",
+  
+  "currentCity": 0,
+  "cities": [
+    {
+      "name": "Nantes",
+      "latitude": 47.2184,
+      "longitude": -1.5536,
+      "timezone": "Europe/Paris"
+    },
+    {
+      "name": "Rennes", 
+      "latitude": 48.1173,
+      "longitude": -1.6778,
+      "timezone": "Europe/Paris"
+    },
+    {
+      "name": "Angers",
+      "latitude": 47.4784,
+      "longitude": -0.5632,
+      "timezone": "Europe/Paris"
+    },
+    {
+      "name": "Tours",
+      "latitude": 47.3941,
+      "longitude": 0.6848,
+      "timezone": "Europe/Paris"
+    },
+    {
+      "name": "Poitiers",
+      "latitude": 46.5802,
+      "longitude": 0.3404,
+      "timezone": "Europe/Paris"
+    },
+    {
+      "name": "Niort",
+      "latitude": 46.3236,
+      "longitude": -0.4594,
+      "timezone": "Europe/Paris"
+    },
+    {
+      "name": "Bordeaux",
+      "latitude": 44.8378,
+      "longitude": -0.5792,
+      "timezone": "Europe/Paris"
+    },
+    {
+      "name": "La Roche-sur-Yon",
+      "latitude": 46.6703,
+      "longitude": -1.4267,
+      "timezone": "Europe/Paris"
+    }
+  ]
+  
+}

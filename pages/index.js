@@ -20,14 +20,23 @@ export const App = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch("api/data", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cityInput }),
-      });
-      const data = await res.json();
-      setWeatherData({ ...data });
-      setCityInput("");
+      try {
+        const res = await fetch("api/data", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          // plus besoin de cityInput avec API open météo
+        });
+        
+        if (!res.ok) {
+          throw new Error(`Erreur API: ${res.status}`);
+        }
+        
+        const data = await res.json();
+        setWeatherData({ ...data });
+      } catch (error) {
+        console.error('Erreur lors de la récupération des données:', error);
+        // optionnel: setWeatherData avec un objet d'erreur
+      }
     };
     getData();
   }, [triggerFetch]);
