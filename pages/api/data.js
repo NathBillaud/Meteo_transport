@@ -33,10 +33,15 @@ export default async function handler(req, res) {
     const data = await getWeatherData.json();
     console.log('Données reçues:', data);
 
+    //partir de minuit pour calcul lever et coucher
+    const currentDate = new Date(data.current_weather.time);
+    const startOfDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    const startOfDayUnix = Math.floor(startOfDay.getTime() / 1000);
+
     // Convertir les timestamps ISO d'Open-Meteo en timestamps Unix
     const currentTimeUnix = Math.floor(new Date(data.current_weather.time).getTime() / 1000);
-    const sunriseTimeUnix = currentTimeUnix + 6 * 3600; // approximation : lever 6h après minuit
-    const sunsetTimeUnix = currentTimeUnix + 18 * 3600; // approximation : coucher 18h après minuit
+    const sunriseTimeUnix = startOfDayUnix + 6 * 3600; // approximation : lever 6h après minuit
+    const sunsetTimeUnix = startOfDayUnix + 18 * 3600; // approximation : coucher 18h après minuit
 
     // Adapter les données Open-Meteo au format des composants
     const adaptedData = {
